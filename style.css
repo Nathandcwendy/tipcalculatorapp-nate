@@ -292,6 +292,12 @@ div.output button:hover {
 
 /* ####Responsive-Design */
 @media (max-width: 860px) {
+  body {
+    height: auto;
+    padding: 3rem 0 1rem;
+    scroll-behavior: smooth;
+  }
+
   .container {
     width: 80vw;
   }
@@ -398,7 +404,7 @@ div.output button:hover {
 @media (max-height: 950px) {
   body {
     height: auto;
-    padding: 3rem 0;
+    padding: 3rem 0 1rem;
     scroll-behavior: smooth;
   }
 }
