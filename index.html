@@ -45,7 +45,7 @@
             <label for="bill"
               >Bill
               <input
-                type="number"
+                type="text"
                 id="bill"
                 placeholder="0"
                 name="bill"
@@ -57,28 +57,29 @@
           <div class="select-tip">
             <h4>Select Tip %</h4>
             <div class="tip-percentages">
-              <div class="percentage-container" value="5">5%</div>
-              <div class="percentage-container" value="10">10%</div>
-              <div class="percentage-container" value="15">15%</div>
-              <div class="percentage-container" value="25">25%</div>
-              <div class="percentage-container" value="50">50%</div>
+              <div class="percentage-container">5%</div>
+              <div class="percentage-container">10%</div>
+              <div class="percentage-container">15%</div>
+              <div class="percentage-container">25%</div>
+              <div class="percentage-container">50%</div>
               <div class="custom-container" id="custom">Custom</div>
-              <input type="number" id="custom-input" name="custom" min="0" />
+              <input type="text" id="custom-input" name="custom" min="0" />
             </div>
           </div>
           <div class="input-value people">
             <label for="people"
               >Number of People
               <input
-                type="number"
+                type="text"
                 id="people"
                 placeholder="0"
                 name="people"
                 min="0"
+                step="1"
               />
               <img src="./images/icon-person.svg" alt="dollar-icon" />
-              <p>can't be zero</p>
             </label>
+            <p>can't be zero</p>
           </div>
         </div>
         <div class="output">
@@ -88,7 +89,7 @@
               <p>/ person</p>
             </div>
             <div class="output-value">
-              <h1 id="tip-per-person">$4.72</h1>
+              <p id="tip-per-person">$4.72</p>
             </div>
           </div>
           <div class="output-tab">
@@ -97,7 +98,7 @@
               <p>/ person</p>
             </div>
             <div class="output-value">
-              <h1 id="total-per-person">$32.79</h1>
+              <p id="total-per-person">$32.79</p>
             </div>
           </div>
           <button id="reset-button">RESET</button>
@@ -106,10 +107,12 @@
     </div>
 
     <div class="attribution">
+      <footer>
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Nate</a>.
+      </footer>
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Nate</a>.
     </div>
     <script src="./index.js"></script>
   </body>

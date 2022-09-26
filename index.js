@@ -27,7 +27,9 @@ percentages.forEach((percentage) => {
   percentage.addEventListener("click", (e) => {
     e.preventDefault();
     clickNumber++;
-    customInput.value = percentage.getAttribute("value");
+    const testRegex = /^([0-9]{1,3})(%)?$/;
+    const editedPercentage = percentage.innerText.replace(testRegex, "$1");
+    customInput.value = Number(editedPercentage);
     if (clickNumber > 0) {
       percentages.forEach((percentage) => {
         percentage.classList.remove("clicked");
@@ -70,7 +72,7 @@ function calculate() {
   // Collecting Variables
   totalBill = parseFloat(billValue.value);
   persons = Number(peopleValue.value);
-  customValue = Number(customInput.value);
+  customValue = parseFloat(customInput.value);
   sum = 0;
   average = 0;
   tip = 0;
@@ -78,12 +80,12 @@ function calculate() {
   // /////////////////////////////
 
   // checking for null/undefined inputs
-  if (Number(totalBill) == null || Number(totalBill) == 0) {
+  if (Number(totalBill) == null || Number(totalBill) == 0 || isNaN(totalBill)) {
     totalBill = 0;
   } else {
     totalBill = billValue.value;
   }
-  if (Number(persons) == null || Number(persons) == 0) {
+  if (Number(persons) == null || Number(persons) == 0 || isNaN(persons)) {
     persons = 1;
   } else {
     persons = peopleValue.value;
@@ -92,7 +94,11 @@ function calculate() {
 
   // Get sum based on percentage or customInput percentage
   // checking for tip
-  if (Number(customValue) != 0 || Number(customValue) != null) {
+  if (
+    Number(customValue) != 0 &&
+    Number(customValue) != null &&
+    !isNaN(customValue)
+  ) {
     tip = (Number(customValue) / 100) * Number(totalBill);
   }
   // /////////////////////////////
@@ -133,15 +139,50 @@ billValue.addEventListener("keypress", (e) => {
   if (!(a.indexOf(k) >= 0) && k != 46) {
     e.preventDefault();
   } else {
-    if (billValue.value.toString().length === 10) {
+    if (k === 46 && e.target.value.includes(".")) {
       e.preventDefault();
     } else {
-      if (peopleValue.value == null || peopleValue.value == 0) {
-        peopleValue.dataset.autofill = 1;
-        peopleValue.value = 1;
-        peopleValue.parentElement.classList.remove("error");
+      if (
+        billValue.value.toString().length === 10 &&
+        k != 46 &&
+        !e.target.value.includes(".")
+      ) {
+        e.preventDefault();
       } else {
-        peopleValue.parentElement.classList.remove("error");
+        if (peopleValue.value == null || peopleValue.value == 0) {
+          peopleValue.dataset.autofill = 1;
+          peopleValue.value = 1;
+          peopleValue.parentElement.classList.remove("error");
+        } else {
+          peopleValue.parentElement.classList.remove("error");
+        }
+      }
+    }
+  }
+});
+// //////////////////////////////////
+
+// Eventlistener to make sure its only numbers or a fullstop
+customInput.addEventListener("keypress", (e) => {
+  let a = [];
+  let k = e.which;
+
+  for (let i = 48; i < 58; i++) {
+    a.push(i);
+  }
+
+  if (!(a.indexOf(k) >= 0) && k != 46) {
+    e.preventDefault();
+  } else {
+    if (k === 46 && e.target.value.includes(".")) {
+      e.preventDefault();
+    } else {
+      if (
+        customInput.value.toString().length === 10 &&
+        k != 46 &&
+        !e.target.value.includes(".")
+      ) {
+        e.preventDefault();
       }
     }
   }
@@ -165,12 +206,33 @@ peopleValue.addEventListener("keypress", (e) => {
 });
 // //////////////////////////////////
 
+// EventListener to change input type on focus
+peopleValue.addEventListener("focus", (e) => {
+  e.target.type = "number";
+  if (peopleValue.value == null || peopleValue.value == 0) {
+    peopleValue.value = null;
+  } else if (peopleValue.dataset.autofill == 1) {
+    peopleValue.value = null;
+    peopleValue.dataset.autofill = null;
+  }
+});
+
+// EventListener to change input type on blur
+peopleValue.addEventListener("blur", (e) => {
+  e.target.type = "text";
+});
+// //////////////////////////////////
+
 // Eventlisteners to Auto Calculate
 billValue.addEventListener("keyup", () => {
   calculate();
 });
 
 peopleValue.addEventListener("keyup", () => {
+  calculate();
+});
+
+peopleValue.addEventListener("change", () => {
   calculate();
 });
 
@@ -188,7 +250,7 @@ function callFunc() {
   ["click", "blur"].forEach((evt) => {
     peopleValue.addEventListener(evt, () => {
       if (peopleValue.value == null || peopleValue.value == 0) {
-        peopleValue.parentElement.classList.add("error");
+        peopleValue.parentElement.parentElement.classList.add("error");
         peopleValue.value = null;
       }
     });

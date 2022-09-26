@@ -54,15 +54,6 @@ header {
   width: auto;
 }
 
-/* h2 {
-    display: inline-block;
-    width: 50%;
-    word-wrap: break-word;
-    letter-spacing: .5rem;
-    text-align: center;
-    text-align-last: center;
-} */
-
 main {
   display: flex;
   justify-content: space-between;
@@ -98,7 +89,11 @@ label img {
   height: 1em;
 }
 
-label p {
+.people {
+  position: relative;
+}
+
+.people p {
   display: none;
   position: absolute;
   top: 0;
@@ -106,11 +101,11 @@ label p {
   color: hsl(0, 50%, 55%);
 }
 
-label.error input {
+.people.error input {
   border: 2px solid hsl(0, 50%, 55%);
 }
 
-label.error p {
+.people.error p {
   display: block;
 }
 
@@ -131,7 +126,7 @@ label.error p {
   color: #9ebbbd;
 }
 
-input[type*="number"]::-webkit-inner-spin-button,
+/* input[type*="number"]::-webkit-inner-spin-button,
 input[type*="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -141,7 +136,7 @@ input[type*="number"]::-webkit-inner-spin-button,
 input[type*="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 
 .select-tip h4 {
   margin-bottom: 0.75rem;
@@ -218,7 +213,7 @@ div.output-tab {
   color: var(--Darkgrayishcyan);
 }
 
-.output-value h1 {
+.output-value p {
   color: var(--Strongcyan);
   font-size: 2.5rem;
 }
@@ -252,9 +247,9 @@ div.output button.active {
   cursor: pointer;
 }
 
-label.error input:hover,
-label.error input:focus,
-label.error input:active {
+.people.error input:hover,
+.people.error input:focus,
+.people.error input:active {
   border: 2px solid hsl(0, 50%, 55%);
   outline: hsl(0, 50%, 55%);
   cursor: pointer;
@@ -320,7 +315,7 @@ div.output button:hover {
     gap: 0.5rem;
   }
 
-  .output-value h1 {
+  .output-value p {
     font-size: 2rem;
   }
 
@@ -334,13 +329,15 @@ div.output button:hover {
   }
 }
 
-@media (max-width: 330px) {
-  label p {
+@media (max-width: 350px) {
+  .people p {
     position: relative;
     text-align: right;
   }
+}
 
-  .output-value h1 {
+@media (max-width: 330px) {
+  .output-value p {
     font-size: 1.5rem;
   }
 
