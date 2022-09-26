@@ -45,17 +45,17 @@
             <label for="bill"
               >Bill
               <input
+                autocomplete="off"
                 type="text"
                 id="bill"
                 placeholder="0"
                 name="bill"
-                min="0"
               />
               <img src="./images/icon-dollar.svg" alt="dollar-icon" />
             </label>
           </div>
           <div class="select-tip">
-            <h4>Select Tip %</h4>
+            <h1>Select Tip %</h1>
             <div class="tip-percentages">
               <div class="percentage-container">5%</div>
               <div class="percentage-container">10%</div>
@@ -63,19 +63,23 @@
               <div class="percentage-container">25%</div>
               <div class="percentage-container">50%</div>
               <div class="custom-container" id="custom">Custom</div>
-              <input type="text" id="custom-input" name="custom" min="0" />
+              <input
+                autocomplete="off"
+                type="text"
+                id="custom-input"
+                name="custom"
+              />
             </div>
           </div>
           <div class="input-value people">
             <label for="people"
               >Number of People
               <input
+                autocomplete="off"
                 type="text"
                 id="people"
                 placeholder="0"
                 name="people"
-                min="0"
-                step="1"
               />
               <img src="./images/icon-person.svg" alt="dollar-icon" />
             </label>
@@ -89,7 +93,7 @@
               <p>/ person</p>
             </div>
             <div class="output-value">
-              <p id="tip-per-person">$4.72</p>
+              <p id="tip-per-person">$0.00</p>
             </div>
           </div>
           <div class="output-tab">
@@ -98,22 +102,20 @@
               <p>/ person</p>
             </div>
             <div class="output-value">
-              <p id="total-per-person">$32.79</p>
+              <p id="total-per-person">$0.00</p>
             </div>
           </div>
           <button id="reset-button">RESET</button>
         </div>
       </main>
-    </div>
-
-    <div class="attribution">
-      <footer>
+      <footer class="attribution">
+        Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
         >. Coded by <a href="#">Nate</a>.
       </footer>
-      Challenge by
     </div>
+
     <script src="./index.js"></script>
   </body>
 </html>
