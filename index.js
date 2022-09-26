@@ -281,12 +281,6 @@ billValue.addEventListener("dblclick", () => {
   }
 });
 
-peopleValue.addEventListener("dblclick", () => {
-  if (peopleValue.value != null || peopleValue.value != 0) {
-    peopleValue.select();
-  }
-});
-
 customInput.addEventListener("dblclick", () => {
   if (customInput.value != null || customInput.value != 0) {
     customInput.select();
