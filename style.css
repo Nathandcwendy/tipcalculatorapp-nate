@@ -58,10 +58,10 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25em;
+  padding: 1.5em;
   border-radius: 1rem;
   background-color: white;
-  width: 800px;
+  width: 850px;
   gap: 2rem;
 }
 
@@ -80,6 +80,7 @@ div.input {
 .input-value label {
   position: relative;
   display: block;
+  color: var(--Darkgrayishcyan);
 }
 
 label img {
@@ -125,6 +126,7 @@ label img {
 
 .input-value input::placeholder {
   color: #9ebbbd;
+  font-family: var(--FontFamily);
 }
 
 /* input[type*="number"]::-webkit-inner-spin-button,
@@ -142,6 +144,7 @@ input[type*="number"]::-webkit-outer-spin-button {
 .select-tip h1 {
   margin-bottom: 0.75rem;
   font-size: 16px;
+  color: var(--Darkgrayishcyan);
 }
 
 .tip-percentages {
@@ -169,7 +172,7 @@ input[type*="number"]::-webkit-outer-spin-button {
 
 .custom-container {
   background-color: var(--Verylightgrayishcyan);
-  color: var(--Verydarkcyan);
+  color: var(--Darkgrayishcyan);
   font-weight: 700;
   text-align: center;
   padding: 0.5rem;
@@ -225,15 +228,17 @@ div.output-tab {
 div.output button {
   margin-top: auto;
   width: 100%;
-  background-color: var(--Lightgrayishcyan);
+  /* background-color: var(--Lightgrayishcyan); */
+  background-color: hsl(185, 41%, 84%);
   opacity: 0.2;
-  padding: 0.75rem;
+  padding: 01rem;
   border-radius: 5px;
   border: none;
   letter-spacing: 1px;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--Verydarkcyan);
+  /* color: var(--Verydarkcyan); */
+  color: hsla(183, 100%, 15%, 0.2);
 }
 
 div.output button.active {
@@ -286,7 +291,7 @@ div.output button:hover {
 }
 
 /* ####Responsive-Design */
-@media (max-width: 810px) {
+@media (max-width: 860px) {
   .container {
     width: 80vw;
   }

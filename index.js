@@ -320,6 +320,5 @@ resetButton.addEventListener("click", (e) => {
 });
 
 // Added an initial active class to reset button
-resetButton.classList.add("active");
 
 // //////////////////////////////////////
