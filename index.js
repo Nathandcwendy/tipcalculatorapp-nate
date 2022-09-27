@@ -152,9 +152,9 @@ billValue.addEventListener("keypress", (e) => {
         if (peopleValue.value == null || peopleValue.value == 0) {
           peopleValue.dataset.autofill = 1;
           peopleValue.value = 1;
-          peopleValue.parentElement.classList.remove("error");
+          peopleValue.parentElement.parentElement.classList.remove("error");
         } else {
-          peopleValue.parentElement.classList.remove("error");
+          peopleValue.parentElement.parentElement.classList.remove("error");
         }
       }
     }
@@ -201,7 +201,7 @@ peopleValue.addEventListener("keypress", (e) => {
   if (!(a.indexOf(k) >= 0)) {
     e.preventDefault();
   } else {
-    peopleValue.parentElement.classList.remove("error");
+    peopleValue.parentElement.parentElement.classList.remove("error");
   }
 });
 // //////////////////////////////////
@@ -309,7 +309,7 @@ resetButton.addEventListener("click", (e) => {
   });
   custom.style.display = "block";
   customInput.style.display = "none";
-  peopleValue.parentElement.classList.remove("error");
+  peopleValue.parentElement.parentElement.classList.remove("error");
   resetButton.classList.remove("active");
 });
 
