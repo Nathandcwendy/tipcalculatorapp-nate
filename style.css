@@ -85,7 +85,7 @@ div.input {
 
 label img {
   position: absolute;
-  top: 2.55em;
+  top: 2.55rem;
   left: 0.75rem;
   height: 1em;
 }
@@ -260,7 +260,7 @@ div.output button.active {
 .input-value input:hover + img,
 .input-value input:focus + img,
 .input-value input:active + img {
-  top: 2.65em;
+  top: 2.65rem;
 }
 
 .people.error input:hover,
