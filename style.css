@@ -257,6 +257,12 @@ div.output button.active {
   cursor: pointer;
 }
 
+.input-value input:hover + img,
+.input-value input:focus + img,
+.input-value input:active + img {
+  top: 2.65em;
+}
+
 .people.error input:hover,
 .people.error input:focus,
 .people.error input:active {
